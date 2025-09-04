@@ -3,23 +3,48 @@
 ## Aim:
 To write a verilog code for 4bit adder and verify the functionality using Test bench.
 
- Write Verilog Code
+## Tools used for ASIC Flow:
+ 1. nclaunch- Used for Functional Simulation
 
- Verify the Functionality using Test-bench.
+## Design Information and Bock Diagram:
+ An up/down counter is a digital counter which can be set to count either
+from 0 to MAX_VALUE or MAX_VALUE to 0.
 
-## Tool Required: 
-Functional Simulation: nclaunch Simulator (nclaunch) 
+ The direction of the count(mode) is selected using a single bit input. The
+module has 3 inputs - clk, reset which is active high and a Up Or Down mode
+input. The output is Counter which is 4 bit in size.
 
-## 4-bit Adder Design:
-To construct a 4-bit adder, need to chain together four 1-bit full adders. Each full adder computes the sum and carry for one bit of the two numbers. The carry-out from one adder feeds into the carry-in of the next adder in the sequence. This process adds the two 4-bit numbers bit by bit, with the carry propagating through each stage, resulting in a final sum and carry-out at the end.
+ When Up mode is selected, counter counts from 0 to 15 and then again
+from 0 to 15.
 
-To design a 1-bit full adder, the first step is to create a truth table that represents all possible combinations of the inputs (A, B, and CIN) and the corresponding outputs (Sum(S) and COUT).
+ When Down mode is selected, counter counts from 15 to 0 and then again
+from 15 to 0
 
-![image](https://github.com/user-attachments/assets/716a26b6-a449-42e0-9e2d-cdbaa4b291b9)
+ Changing mode doesn't reset the Count value to zero.
 
-Here’s the truth table for a 1-bit full adder:
+ You have to apply high value to reset, to reset the Counter output.
 
-![tt](https://github.com/user-attachments/assets/0b3ab24f-1d7e-4a01-80ce-5e7406f4082b)
+<img width="443" height="121" alt="image" src="https://github.com/user-attachments/assets/aa16f79d-aef9-409b-a937-c88d5dd3f00f" />
+     ##Fig 1: 4 Bit Up/Down Counter
+
+##Creating a Work space :
+
+ Create a folder in your name (Note: Give folder name without any space)
+and Create a new sub-Directory name it as Exp2 or counter_design for the
+Design and open a terminal from the Sub-Directory. Functional Simulation:
+
+ Invoke the cadence environment by type the below commands
+
+ tcsh (Invokes C-Shell)
+
+ source /cadence/install/cshrc (mention the path of the tools) (The path of
+cshrc could vary depending on the installation destination)
+
+ After this you can see the window like below
+ <img width="1365" height="673" alt="Screenshot 2025-09-04 083912" src="https://github.com/user-attachments/assets/d6ba50fd-52a3-4507-93de-88f90417c13e" />
+ ##Fig 2: Invoke the Cadence Environment
+ 
+
 
 ### Fig 1 : Diagram and truth table of full adder
 
